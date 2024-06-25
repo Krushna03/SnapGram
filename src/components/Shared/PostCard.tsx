@@ -19,7 +19,7 @@ function PostCard( {post} : PostCardProps ) {
             
             <Link to={`/profile/${post.creator.$id}`}>
                <img 
-                 src={post?.creator.imagUrl || '/assets/icons/profile-placeholder.svg'} 
+                 src={post?.creator.imageUrl || '/assets/icons/profile-placeholder.svg'} 
                  alt="creator"
                  className="rounded-full w-12 lg:h-12" 
                />

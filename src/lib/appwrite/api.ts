@@ -1,5 +1,5 @@
 import { INewPost, INewUser, IUpdatePost, IUpdateUser } from "@/types";
-import { ID, Query } from 'appwrite'
+import { ID, ImageGravity, Query } from 'appwrite'
 import { account, appwriteConfig, avatars, databases, storage } from "./config";
 
 
@@ -169,7 +169,7 @@ export function getFilePreview(fileId: string) {
          fileId,
          2000,
          2000,
-         undefined,
+         ImageGravity.Center,
         100,   
       )
       if(!fileUrl) throw  new Error("Failed to get file preview");
@@ -388,7 +388,7 @@ export async function deletePost(postId?: string, imageId?: string) {
 
 
 export async function getInfinitePosts({ pageParam } : { pageParam: number }){
-   const queries: any[] = [Query.orderDesc('$updatedAt'), Query.limit(10)]
+   let queries: any[] = [Query.orderDesc('$updatedAt'), Query.limit(10)]
 
    if (pageParam) {
       queries.push(Query.cursorAfter(pageParam.toString()));
@@ -400,7 +400,7 @@ export async function getInfinitePosts({ pageParam } : { pageParam: number }){
        appwriteConfig.postCollectionID,
        queries
      ) 
-     if(posts) throw new Error('Infinite post error')
+     if(!posts) throw new Error('Infinite post error')
 
      return posts
 
@@ -411,15 +411,15 @@ export async function getInfinitePosts({ pageParam } : { pageParam: number }){
 
 
 
-export async function searchPosts(searchTerms: string){
+export async function searchPosts(searchTerm: string){
    try {
      const posts = await databases.listDocuments(
        appwriteConfig.databaseID,
        appwriteConfig.postCollectionID,
-       [Query.search('caption', searchTerms)]
+       [Query.search('caption', searchTerm)]
      )  
 
-     if(posts) throw new Error('searchPosts function error')
+     if(!posts) throw new Error('searchPosts function error')
 
      return posts
 
