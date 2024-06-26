@@ -3,6 +3,8 @@ import { ID, ImageGravity, Query } from 'appwrite'
 import { account, appwriteConfig, avatars, databases, storage } from "./config";
 
 
+////////////// Account creation with the Actual snapGram account
+
 export async function createUserAccount(user: INewUser){
    try {
       const newAccount = await account.create(
@@ -22,7 +24,6 @@ export async function createUserAccount(user: INewUser){
          username: user.username,
          imageUrl: avatarUrl
       })
-
       return newUser;
 
    } catch (error) {

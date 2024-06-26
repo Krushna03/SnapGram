@@ -10,17 +10,19 @@ import { Link, useNavigate } from "react-router-dom"
 import { useToast } from "@/components/ui/use-toast"
 import { useSigninAccount} from "@/lib/React-Query/queries&Mutaion"
 import { userContext } from "@/context/AuthContext"
+import { error } from "console"
 
 
 function SigninForm() {
 
    const {toast} = useToast()
-   const {checkAuthUser, isLoading: isUserLoading } = userContext()
+   const {checkAuthUser, isLoading: isUserLoading} = userContext()
    const navigate = useNavigate()
 
+   // Query
    const { mutateAsync: signInAccount} = useSigninAccount();
 
-
+   
     // 1. Define your form.
    const form = useForm<z.infer<typeof SigninValidation>>({
    resolver: zodResolver(SigninValidation),
@@ -72,6 +74,7 @@ function SigninForm() {
 
           <form onSubmit={form.handleSubmit(onSubmit)} className="flex flex-col gap-5 w-full mt-4">
 
+
             <FormField
                control={form.control}
                name="email"
@@ -91,7 +94,7 @@ function SigninForm() {
                name="password"
                render={({ field }) => (
                   <FormItem>
-                  <FormLabel>Password</FormLabel>
+                  <FormLabel>Password (Min. 8 characters are required)</FormLabel>
                   <FormControl>
                      <Input type="password" className="shad-input" {...field} />
                   </FormControl>

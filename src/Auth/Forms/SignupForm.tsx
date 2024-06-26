@@ -14,12 +14,13 @@ import { userContext } from "@/context/AuthContext"
 
 function SignupForm() {
    const {toast} = useToast()
-   const {checkAuthUser } = userContext()
+   const {checkAuthUser, isLoading: isUserLoading  } = userContext()
    const navigate = useNavigate()
 
-   const { mutateAsync: createUserAccount, isPending: isCreatingAccount} = useCreateUserAccount();
 
-   const { mutateAsync: signInAccount} = useSigninAccount();
+   // Queries
+   const { mutateAsync: createUserAccount, isPending: isCreatingAccount} = useCreateUserAccount();
+   const { mutateAsync: signInAccount, isPending: isSigningInUser} = useSigninAccount();
 
 
     // 1. Define your form.
@@ -37,18 +38,21 @@ function SignupForm() {
  // 2. Define a submit handler.
  async function onSubmit(values: z.infer<typeof SignupValidation>) {
    const newUser = await createUserAccount(values);
+
    if (!newUser) {
-      return toast({
-         title: "Sign up failed. Please try again",
-       })
+       toast({ title: "Sign up failed. Please try again" })
+       return;
    }
 
    const session = await signInAccount({
        email: values.email,
        password: values.password,
    })
+
    if(!session){
-      return toast({title: 'Sign in failed. PLease try again.'})
+      toast({title: 'Sign in failed. PLease try again.'})
+      navigate("/sign-in");
+      return;
    }
 
    const isLoggedIn = await checkAuthUser()
@@ -126,7 +130,7 @@ function SignupForm() {
                name="password"
                render={({ field }) => (
                   <FormItem>
-                  <FormLabel>Password</FormLabel>
+                  <FormLabel>Password (Min. 8 characters required)</FormLabel>
                   <FormControl>
                      <Input type="password" className="shad-input" {...field} />
                   </FormControl>
