@@ -1,4 +1,5 @@
 import PostForm from "@/components/forms/PostForm"
+import addpost from "/assets/icons/add-post.svg"
 
 function CreatePost() {
  
@@ -8,7 +9,7 @@ function CreatePost() {
           <div className="max-w-5xl flex-start gap-3 justify-start w-full">
              
              <img 
-               src="/assets/icons/add-post.svg" 
+               src={addpost} 
                alt="add" 
                width={36}
                height={36}

@@ -2,6 +2,7 @@ import GridPostList from "@/components/Shared/GridPostList";
 import Loader from "@/components/Shared/Loader";
 import { useGetCurrentUser } from "@/lib/React-Query/queries&Mutaion";
 import { Models } from "appwrite";
+import save from "/assets/icons/save.svg"
 
 
 const Saved = () => {
@@ -20,7 +21,7 @@ const Saved = () => {
     <div className="saved-container">
       <div className="flex gap-2 w-full max-w-5xl">
         <img
-          src="/assets/icons/save.svg"
+          src={save}
           width={36}
           height={36}
           alt="edit"
