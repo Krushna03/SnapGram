@@ -6,6 +6,7 @@ import { userContext } from '@/context/AuthContext'
 import { sidebarLinks } from '@/constants'
 import { INavLink } from '@/types'
 import logout from "/assets/icons/logout.svg"
+import logo from "/public/images/logo.svg" 
 
 function Leftsidebar() {
 
@@ -24,7 +25,7 @@ return (
       <div className='flex flex-col gap-10'>
          <Link to='/' className='flex gap-3 items-center'>
             <img 
-               src="/public/images/logo.svg" 
+               src={logo}
                alt="logo" 
                width={170}
                height={36}

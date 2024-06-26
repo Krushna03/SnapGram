@@ -5,6 +5,9 @@ import { userContext } from "@/context/AuthContext";
 import { useGetUserById } from "@/lib/React-Query/queries&Mutaion";
 import { Route, Routes, Link, Outlet, useParams, useLocation} from "react-router-dom";
 import LikedPosts from "./LikedPost";
+import edit from "/assets/icons/edit.svg"
+import posts from "/assets/icons/posts.svg"
+import like from "/assets/icons/like.svg"
 
 
 interface StabBlockProps {
@@ -73,7 +76,7 @@ const Profile = () => {
                   user.id !== currentUser.$id && "hidden"
                 }`}>
                 <img
-                  src={"/assets/icons/edit.svg"}
+                  src={edit}
                   alt="edit"
                   width={20}
                   height={20}
@@ -100,7 +103,7 @@ const Profile = () => {
               pathname === `/profile/${id}` && "!bg-dark-3"
             }`}>
             <img
-              src={"/assets/icons/posts.svg"}
+              src={posts}
               alt="posts"
               width={20}
               height={20}
@@ -113,7 +116,7 @@ const Profile = () => {
               pathname === `/profile/${id}/liked-posts` && "!bg-dark-3"
             }`}>
             <img
-              src={"/assets/icons/like.svg"}
+              src={like}
               alt="like"
               width={20}
               height={20}

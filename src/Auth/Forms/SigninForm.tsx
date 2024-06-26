@@ -10,6 +10,7 @@ import { Link, useNavigate } from "react-router-dom"
 import { useToast } from "@/components/ui/use-toast"
 import { useSigninAccount} from "@/lib/React-Query/queries&Mutaion"
 import { userContext } from "@/context/AuthContext"
+import logo from "/public/images/logo.svg"
 
 
 function SigninForm() {
@@ -61,7 +62,7 @@ function SigninForm() {
         <Form {...form}>
 
           <div className="sm:w-420 flex-center flex-col">
-            <img src="/public/images/logo.svg" alt="" />
+            <img src={logo} alt="" />
 
             <h2 className="h3-bold md:h2-bold pt-5 sm:pt-12">
                Log in to your account

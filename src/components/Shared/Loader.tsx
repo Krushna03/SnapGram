@@ -1,10 +1,10 @@
-
+import loader from "/assets/icons/loader.svg" 
 function Loader() {
 
    return (
       <div className="flex-center w-full" > 
          <img 
-             src="/assets/icons/loader.svg" 
+             src={loader}
              alt="loader"
              width={24} 
              height={24}
