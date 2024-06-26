@@ -3,6 +3,10 @@ import { checkIsLiked } from "@/lib/utils"
 import { Models } from "appwrite"
 import { useEffect, useState } from "react"
 import Loader from "./Loader"
+import liked from  "/assets/icons/liked.svg" 
+import like from "/assets/icons/like.svg"
+import saved from  "/assets/icons/saved.svg" 
+import save from "/assets/icons/save.svg"
 
 
 type PostStatsProps = {
@@ -73,8 +77,8 @@ function PostStats( {post, userId} : PostStatsProps) {
        <div className="flex gap-2 mr-5">
           <img 
             src={ checkIsLiked(likes , userId) 
-                   ? "/assets/icons/liked.svg" 
-                   : "/assets/icons/like.svg"}
+                   ? liked
+                   : like}
             alt="like" 
             width={20}
             height={20}
@@ -88,8 +92,8 @@ function PostStats( {post, userId} : PostStatsProps) {
        { isSavingPost || isDeletingSaved ? <Loader /> :
           <img 
             src={ isSaved 
-                  ? "/assets/icons/saved.svg" 
-                  : "/assets/icons/save.svg" 
+                  ? saved
+                  : save
                 }
             alt="like" 
             width={20}

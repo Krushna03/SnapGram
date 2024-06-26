@@ -6,6 +6,9 @@ import { userContext } from "@/context/AuthContext"
 import { useDeletePost, useGetPostById, useGetUserPosts } from "@/lib/React-Query/queries&Mutaion"
 import { multiFormatDateString } from "@/lib/utils"
 import { Link, useNavigate, useParams } from "react-router-dom"
+import edit from "/assets/icons/edit.svg"
+// import delete from "/assets/icons/delete.svg"
+import back from "/assets/icons/back.svg"
 
 
 function PostDetails() {
@@ -38,7 +41,7 @@ function PostDetails() {
           variant="ghost"
           className="shad-button_ghost">
           <img
-            src={"/assets/icons/back.svg"}
+            src={back}
             alt="back"
             width={24}
             height={24}
@@ -91,7 +94,7 @@ function PostDetails() {
                   to={`/update-post/${post?.$id}`}
                   className={`${user.id !== post?.creator.$id && "hidden"}`}>
                   <img
-                    src={"/assets/icons/edit.svg"}
+                    src={edit}
                     alt="edit"
                     width={24}
                     height={24}
@@ -105,7 +108,7 @@ function PostDetails() {
                     user.id !== post?.creator.$id && "hidden"
                   }`}>
                   <img
-                    src={"/assets/icons/delete.svg"}
+                    src="/assets/icons/delete.svg"
                     alt="delete"
                     width={24}
                     height={24}
