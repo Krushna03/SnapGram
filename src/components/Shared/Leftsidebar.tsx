@@ -5,7 +5,7 @@ import { useEffect } from 'react'
 import { userContext } from '@/context/AuthContext'
 import { sidebarLinks } from '@/constants'
 import { INavLink } from '@/types'
-
+import logout from "/assets/icons/logout.svg"
 
 function Leftsidebar() {
 
@@ -70,7 +70,7 @@ return (
       <Button variant='ghost' className='shad-button_ghost'
         onClick={() => signOut()}>
          <img 
-            src="/assets/icons/logout.svg" 
+            src={logout}
             alt="logout" 
          />
          <p className='small-medium lg:base-medium'>Logout</p>

@@ -3,6 +3,7 @@ import { multiFormatDateString } from "@/lib/utils";
 import { Models } from "appwrite"
 import { Link } from "react-router-dom";
 import PostStats from "./PostStats";
+import logo from '/assets/icons/profile-placeholder.svg'
 
 
 type PostCardProps ={
@@ -19,7 +20,7 @@ function PostCard( {post} : PostCardProps ) {
             
             <Link to={`/profile/${post.creator.$id}`}>
                <img 
-                 src={post?.creator.imageUrl || '/assets/icons/profile-placeholder.svg'} 
+                 src={post?.creator.imageUrl || logo} 
                  alt="creator"
                  className="rounded-full w-12 lg:h-12" 
                />

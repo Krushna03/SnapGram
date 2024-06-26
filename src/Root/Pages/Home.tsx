@@ -3,7 +3,6 @@ import PostCard from "@/components/Shared/PostCard";
 import { useGetRecentPosts } from "@/lib/React-Query/queries&Mutaion";
 import { Models } from "appwrite";
 
-
 function Home() {
     const {data: posts, isPending: isPostLoading} = useGetRecentPosts()
 
