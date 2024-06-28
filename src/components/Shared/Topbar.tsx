@@ -3,6 +3,8 @@ import { Button } from '../ui/button'
 import { useSignOutAccount } from '@/lib/React-Query/queries&Mutaion'
 import { useEffect } from 'react'
 import { userContext } from '@/context/AuthContext'
+import logo from "/public/images/logo.svg" 
+import logout from "/assets/icons/logout.svg" 
 
 function Topbar() {
 
@@ -19,7 +21,7 @@ function Topbar() {
          <div className='flex-between py-4 px-5'>
             <Link to='/' className='flex gap-3 items-center'>
                 <img 
-                   src="/public/images/logo.svg" 
+                   src={logo}
                    alt="logo" 
                    width={130}
                    height={325}
@@ -30,7 +32,7 @@ function Topbar() {
                <Button variant='ghost' className='shad-button_ghost'
                onClick={() => signOut()}>
                  <img 
-                    src="/assets/icons/logout.svg" 
+                    src={logout}
                     alt="logout" />
                </Button>
 
