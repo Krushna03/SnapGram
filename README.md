@@ -1,92 +1,67 @@
-# Hirrd - Job Recruitment Web Application
+# SnapGram - Full Stack Social Media Application
 
-Hirrd is a full-stack responsive job recruitment web application built using the MERN stack (MongoDB, Express, React, Node.js).
-It offers secure authentication for candidates and recruiters, profile management, and job application functionalities.
+SnapGram is a modern full-stack social media platform where users can create, edit, explore posts, manage their profiles, like, and save posts.
+Built with React.js, Appwrite, TailwindCSS, and TanStack Query.
+
 
 ## Deployment
 
-The project is deployed on Vercel: [hirrd-frontend.vercel.app](https://hirrd-frontend.vercel.app)
+The project is deployed on Vercel: [snapgram-frontend.vercel.app](https://snapgram-frontend.vercel.app)
 
 ## Features
 
-- Candidate and Recruiter Role-Based Authentication (JWT Token & Cookie Management)
-- Job Posting by Recruiters
-- Job Application by Candidates
-- Profile Management for Both Candidates and Recruiters
-- Secure Login/Signup System
-- Image Uploads using Multer & Cloudinary
-- State Management using React-Redux
-- Responsive and Intuitive UI/UX
+- User Authentication (Login/Sign Up)
+- Post Creation, Editing, and Deletion
+- Explore All Posts
+- Like and Save Posts
+- User Profile Management
+- Fully Responsive Design
+- Optimized API Calls using TanStack Query
 
 ## Tech Stack
 
 **Frontend**
 - React.js
-- Redux Toolkit
 - TailwindCSS
 - TanStack Query
 
 **Backend**
-- Node.js
-- Express.js
-- MongoDB (Mongoose)
-- JWT (JSON Web Token)
-- Multer
-- Cloudinary
+- Appwrite (Backend-as-a-Service)
 
 ## Getting Started
 
 ### Prerequisites
-Make sure you have installed the following on your machine:
+Make sure you have installed the following:
 
 - Node.js
-- MongoDB
+- Appwrite Self-Hosted or Cloud Instance
 
 ### Installation
 
 Clone the repository:
 ```bash
-git clone https://github.com/your-username/hirrd.git
-cd hirrd
+git clone https://github.com/your-username/snapgram.git
+cd snapgram
 ```
 
-Install dependencies for both frontend and backend:
+Install dependencies:
 ```bash
-cd client
-npm install
-cd ../server
 npm install
 ```
 
 ### Environment Variables
-Create a `.env` file inside `server` directory with the following:
+Create a `.env` file in the root directory with the following variables:
 ```bash
-MONGO_URI=your_mongodb_connection_string
-JWT_SECRET=your_jwt_secret
-CLOUDINARY_CLOUD_NAME=your_cloudinary_name
-CLOUDINARY_API_KEY=your_cloudinary_api_key
-CLOUDINARY_API_SECRET=your_cloudinary_api_secret
+VITE_APPWRITE_URL=your_appwrite_url
+VITE_APPWRITE_PROJECT_ID=your_project_id
+VITE_APPWRITE_DATABASE_ID=your_database_id
+VITE_APPWRITE_BUCKET_ID=your_bucket_id
+VITE_APPWRITE_COLLECTION_ID=your_collection_id
 ```
 
 ### Running the Application
-
-#### Frontend
 ```bash
-cd client
-npm start
-```
-
-#### Backend
-```bash
-cd server
 npm run dev
-```
-
-## Folder Structure
-```
-hirrd/
-├── client/        # React Frontend
-├── server/        # Express Backend
 ```
 
 ## License
