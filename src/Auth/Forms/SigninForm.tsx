@@ -10,7 +10,7 @@ import { Link, useNavigate } from "react-router-dom"
 import { useToast } from "@/components/ui/use-toast"
 import { useSigninAccount} from "@/lib/React-Query/queries&Mutaion"
 import { userContext } from "@/context/AuthContext"
-import logo from "/public/images/logo.svg"
+import logo from "/images/logo.svg"
 
 
 function SigninForm() {

@@ -6,7 +6,7 @@ import { userContext } from '@/context/AuthContext'
 import { sidebarLinks } from '@/constants'
 import { INavLink } from '@/types'
 import logout from "/assets/icons/logout.svg"
-import logo from "/public/images/logo.svg" 
+import logo from "/images/logo.svg" 
 
 function Leftsidebar() {
 

@@ -3,7 +3,7 @@ import { Button } from '../ui/button'
 import { useSignOutAccount } from '@/lib/React-Query/queries&Mutaion'
 import { useEffect } from 'react'
 import { userContext } from '@/context/AuthContext'
-import logo from "/public/images/logo.svg" 
+import logo from "/images/logo.svg" 
 import logout from "/assets/icons/logout.svg" 
 
 function Topbar() {
